@@ -1,5 +1,5 @@
 # TIHLDE-DRIFT
-Oppsett av rg og db ved hjelp av Terraform
+Oppsett av rg og db i Azure ved hjelp av Terraform
 
 ## Initialiser Terraform
 Kjør kommandoen [terraform init](https://developer.hashicorp.com/terraform/cli/commands/init) for å intialisere Terraform deployering. Denne kommandoen laster ned Azure provideren nødvendig for å administrere Azure ressursene.
