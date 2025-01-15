@@ -1,7 +1,11 @@
 # TIHLDE-DRIFT
 Oppsett av rg og db i Azure ved hjelp av Terraform
 
-
+## Innholdsfortegnelse
+1. [Implentering av Terraform kode](#implentering-av-terraform-kode)
+2. [Initialiser Terraform](#initialiser-terraform)
+3. [Slett ressursene](#slett-ressursene)
+4. [Referanser](#referanser)
 
 ## Implentering av Terraform kode 
 1. Lag et directory hvor du tester og kjører Terraform koden og gjør den til current directory.
@@ -153,4 +157,7 @@ terraform plan -destroy -out main.destroy.tfplan
 ```hcl
 terraform apply main.destroy.tfplan
 ```
+
+## Referanser
+1. [Quickstart: Create an Azure SQL Database server and database using Terraform](https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-terraform-quickstart?view=azuresql&tabs=azure-cli)
 
