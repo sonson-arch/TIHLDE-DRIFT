@@ -67,7 +67,57 @@ resource "azurerm_mssql_database" "db" {
   server_id = azurerm_mssql_server.server.id
 }
 ```
+4. Lag en fil kalt `variables.tf`og sett inn følgende kode:
 
+```hcl 
+variable "resource_group_location" {
+  type        = string
+  description = "Location for all resources."
+  default     = "northeurope"
+}
+
+variable "resource_group_name_prefix" {
+  type        = string
+  description = "Prefix of the resource group name that's combined with a random ID so name is unique in your Azure subscription."
+  default     = "rg"
+}
+
+variable "sql_db_name" {
+  type        = string
+  description = "The name of the SQL Database."
+  default     = "SampleDB"
+}
+
+variable "admin_username" {
+  type        = string
+  description = "The administrator username of the SQL logical server."
+  default     = "azureadmin"
+}
+
+variable "admin_password" {
+  type        = string
+  description = "The administrator password of the SQL logical server."
+  sensitive   = true
+  default     = null
+}
+```
+
+5. Lag en fil kalt `outputs.tf`og sett inn følgende kode:
+
+```hcl
+output "resource_group_name" {
+  value = azurerm_resource_group.rg.name
+}
+
+output "sql_server_name" {
+  value = azurerm_mssql_server.server.name
+}
+
+output "admin_password" {
+  value     = local.admin_password
+  sensitive = true
+}
+```
 
 ## Initialiser Terraform
 Kjør kommandoen [terraform init](https://developer.hashicorp.com/terraform/cli/commands/init) for å intialisere Terraform deployering. Denne kommandoen laster ned Azure provideren nødvendig for å administrere Azure ressursene.
@@ -103,3 +153,4 @@ terraform plan -destroy -out main.destroy.tfplan
 ```hcl
 terraform apply main.destroy.tfplan
 ```
+
