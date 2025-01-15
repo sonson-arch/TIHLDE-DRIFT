@@ -1,5 +1,5 @@
 # TIHLDE-DRIFT
-Oppsett ved hjelp av Terraform
+Oppsett av rg og db i Azure ved hjelp av Terraform
 
 
 
